@@ -7,6 +7,7 @@ const NavBar = () => {
     return (
         <div>
             <nav>
+                <h3>Just My Take</h3>
                 <ul>
                     <li><NavLink exact to="/">Home</NavLink></li>
                     <li><NavLink to="/my-takes">My Takes</NavLink></li>
