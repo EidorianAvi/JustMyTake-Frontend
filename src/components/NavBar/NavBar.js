@@ -1,15 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaAlignJustify } from 'react-icons/fa'
+import { FaAlignJustify } from 'react-icons/fa';
+import { useDetectOutsideClick } from '../../hooks/useDetectOutsideClick';
 import './NavBar.css';
 
-
 const NavBar = () => {
-
     const dropdownRef = useRef(null);
-    const [dropdown, setDropdown] = useState(false);
-
-    const handleClick = () => setDropdown(!dropdown);
+    const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+     
+    const handleClick = () => setIsActive(!isActive);
 
     return (
         <div className="NavBar">
@@ -20,7 +19,7 @@ const NavBar = () => {
                 <button onClick={handleClick} className="dropdown-toggle">
                     <FaAlignJustify/>
                 </button>
-                <nav ref={dropdownRef} className={`menu ${dropdown ? 'active' : 'inactive'}`}>
+                <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
                     <ul>
                         <li><NavLink exact to="/">Home</NavLink></li>
                         <li><NavLink to="/my-takes">My Takes</NavLink></li>
