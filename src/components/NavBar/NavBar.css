@@ -13,20 +13,26 @@ h3 {
     font-size: 26px;
 }
 
+.menu-container {
+    position: relative;
+    display: flex;
+
+    align-items: flex-end;
+}
+
+
 .dropdown-toggle {
     border: none;
     background-color: black;
     color: white;
-    outline: none;
+    outline: 0;
     cursor: pointer;
     
     font-size: 26px;
     padding: 20px 10px 0px 0px;
 }
 
-.menu-container {
-    position: relative;
-}
+
 
 .menu {
     background: #fefefe;
@@ -38,14 +44,14 @@ h3 {
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
-    transform: translateX(20px);
+    transform: translateY(-20px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
   
 .menu.active {
     opacity: 1;
     visibility: visible;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 .menu ul {

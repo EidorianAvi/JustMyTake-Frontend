@@ -24,6 +24,7 @@ const NavBar = () => {
                         <li><NavLink exact to="/">Home</NavLink></li>
                         <li><NavLink to="/my-takes">My Takes</NavLink></li>
                         <li><NavLink to="/profile">Profile</NavLink></li>
+                        <li><NavLink to="/login">Log In</NavLink></li>
                     </ul> 
                 </nav>            
             </section>
