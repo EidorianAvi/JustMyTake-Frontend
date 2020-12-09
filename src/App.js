@@ -6,6 +6,7 @@ import HomePage from './components/Home/HomePage';
 import MyTakes from './components/MyTakes/MyTakes';
 import Profile from './components/Profile/Profile';
 import Login from './components/Login/Login';
+import Footer from './components/Shared/Footer';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/my-takes" component={MyTakes}/>
           <Route path="/profile" component={Profile}/>
           <Route path="/login" component={Login} />
+          <Footer />
         </div>
       </BrowserRouter>
     );
