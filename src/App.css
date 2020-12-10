@@ -53,6 +53,6 @@ table {
   box-sizing: border-box;
 }
 
-body {
+.App {
 	font-family: 'Oswald', sans-serif;
 }

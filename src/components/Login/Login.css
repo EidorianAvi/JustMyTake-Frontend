@@ -1,9 +1,13 @@
 .login-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
+}
+
+.login-form div {
+    padding: 10px 0px;
 }
 
 .banner {
@@ -19,9 +23,31 @@
 }
 
 .login-form {
-    padding: 50px 0px;
+    padding: 70px 0px;
 }
 
 .login-form label{
     font-size:15px;
+    margin-top: 10px;
+}
+
+.login-form input {
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.login-form input:focus {
+    outline: none;
+}
+
+
+.login-form button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: none;
+    margin-top: 30px;
+    font-size: 20px;
+    width: 100%;
 }
