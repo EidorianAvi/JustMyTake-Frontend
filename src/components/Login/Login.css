@@ -45,7 +45,7 @@
     outline: none;
 }
 
-.validator {
+.username-validator, .password-validator {
     width: 100%;
     text-align: center;
     font-size: 12px;
