@@ -5,14 +5,15 @@ import './Login.css';
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
+    
     const handleChange = ({ target }) => {
         return target.name === "username"
-            ? setUsername(target.value)
-            : setPassword(target.value);
+        ? setUsername(target.value)
+        : setPassword(target.value);
     }
-
+    
     const handleSubmit = (e) => {
+        checkForInput();
         e.preventDefault();
         let user = {
             username: username,
@@ -20,6 +21,26 @@ const Login = () => {
         };
         
         loginUser(user);
+    }
+
+    const checkForInput = () => {
+
+    }   
+    
+    const handleLoginSuccess = (attempt) => {
+        if(attempt === true){      
+            let success = document.querySelector('.success');
+            success.classList.remove('hidden');
+            setTimeout(() => {
+                success.classList.add('hidden');
+            }, 2000)
+        } else {
+            let failed = document.querySelector(".failed");
+            failed.classList.toggle('hidden');
+            setTimeout(() => {
+                failed.classList.add('hidden');
+            }, 2000)
+        }
     }
 
     const loginUser = (user) => {
@@ -33,10 +54,10 @@ const Login = () => {
           .then((response) => response.json())
           .then((response) => {
             if (response.message) {
-                console.log(response.message);
+                handleLoginSuccess(false)
             } else {
-                console.log("success");
-              localStorage.setItem("token", response.token);
+                handleLoginSuccess(true)
+                localStorage.setItem("token", response.accessToken);
             }
       });
     }
@@ -44,8 +65,7 @@ const Login = () => {
     return (
         <div className="login-page">
             <section className="banner">
-                <h2>Welcome to Just My Take</h2>
-                <p>A place to collect your thoughts.</p>
+                <h2>Welcome Back</h2>
             </section>
             <section>
                 <form onSubmit={handleSubmit} className="login-form">
@@ -57,6 +77,7 @@ const Login = () => {
                         value={username} 
                         onChange={handleChange}
                         /><br/>
+                        <p className="validator hidden">Username Required</p>
                     </div>
                     <div>
                         <label htmlFor="password">Password:</label><br/>
@@ -65,9 +86,12 @@ const Login = () => {
                         type="password" 
                         value={password} 
                         onChange={handleChange}/><br/>
+                        <p className="validator hidden">Password Required</p>
                     </div>
-                    <NavLink to="/SignUp">New User?</NavLink>
                     <button>Login</button>
+                    <NavLink to="/SignUp" className="signup-link">Create an Account</NavLink>
+                    <p className="success hidden">Successful Login</p>
+                    <p className="failed hidden">Incorrect Credentials</p>
                 </form>
             </section>
         </div>
