@@ -1,4 +1,5 @@
 import React, { useState }from 'react';
+import { NavLink } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
@@ -18,8 +19,26 @@ const Login = () => {
             password: password,
         };
         
-        // loginUser(user);
-        console.log(user)
+        loginUser(user);
+    }
+
+    const loginUser = (user) => {
+        fetch("http://localhost:8000/users/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((response) => response.json())
+          .then((response) => {
+            if (response.message) {
+                console.log(response.message);
+            } else {
+                console.log("success");
+              localStorage.setItem("token", response.token);
+            }
+      });
     }
 
     return (
@@ -47,6 +66,7 @@ const Login = () => {
                         value={password} 
                         onChange={handleChange}/><br/>
                     </div>
+                    <NavLink to="/SignUp">New User?</NavLink>
                     <button>Login</button>
                 </form>
             </section>
