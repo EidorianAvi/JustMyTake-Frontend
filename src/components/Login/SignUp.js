@@ -1,16 +1,29 @@
 import React, { useState }from 'react';
 import { NavLink } from 'react-router-dom';
-import './Login.css';
+import './SignUp.css';
 
 const SignUp = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    // const [email, setEmail] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [email, setEmail] = useState("");
 
     const handleChange = ({ target }) => {
-        return target.name === "username"
-            ? setUsername(target.value)
-            : setPassword(target.value);
+        // return target.name === "username"
+        //     ? setUsername(target.value)
+        //     : setPassword(target.value);
+        switch(target.name){
+            case "email":
+                return setEmail(target.value);
+            case "username":
+                return setUsername(target.value);
+            case "password":
+                return setPassword(target.value);
+            case "confirmPassword": 
+                return setConfirmPassword(target.value);
+            default:
+                return null;
+        }
     }
 
     const handleSubmit = (e) => {
@@ -43,12 +56,21 @@ const SignUp = () => {
     }
 
     return (
-        <div className="login-page">
+        <div className="signup-page">
             <section className="banner">
                 <h2>Create an Account</h2>
             </section>
             <section>
-                <form onSubmit={handleSubmit} className="login-form">
+                <form onSubmit={handleSubmit} className="signup-form">
+                    <div>
+                        <label htmlFor="email">Email:</label><br/>
+                        <input 
+                        name="email"
+                        type="text" 
+                        value={email} 
+                        onChange={handleChange}
+                        /><br/>
+                    </div>
                     <div>
                         <label htmlFor="username">Username:</label><br/>
                         <input 
@@ -64,6 +86,14 @@ const SignUp = () => {
                         name="password" 
                         type="password" 
                         value={password} 
+                        onChange={handleChange}/><br/>
+                    </div>
+                    <div>
+                        <label htmlFor="confirmPassword">Confirm Password:</label><br/>
+                        <input 
+                        name="confirmPassword" 
+                        type="password" 
+                        value={confirmPassword} 
                         onChange={handleChange}/><br/>
                     </div>
                     <button>Sign Up</button>
