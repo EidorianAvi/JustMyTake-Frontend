@@ -31,6 +31,7 @@ const SignUp = () => {
         let user = {
             username: username,
             password: password,
+            email: email
         };
         
         createUser(user);
@@ -57,7 +58,7 @@ const SignUp = () => {
 
     return (
         <div className="signup-page">
-            <section className="banner">
+            <section className="signup-banner">
                 <h2>Create an Account</h2>
             </section>
             <section>
@@ -70,6 +71,7 @@ const SignUp = () => {
                         value={email} 
                         onChange={handleChange}
                         /><br/>
+                        <p className="email-validator hidden">Email Required</p>
                     </div>
                     <div>
                         <label htmlFor="username">Username:</label><br/>
@@ -79,6 +81,7 @@ const SignUp = () => {
                         value={username} 
                         onChange={handleChange}
                         /><br/>
+                        <p className="username-validator hidden">Username Required</p>
                     </div>
                     <div>
                         <label htmlFor="password">Password:</label><br/>
@@ -87,6 +90,7 @@ const SignUp = () => {
                         type="password" 
                         value={password} 
                         onChange={handleChange}/><br/>
+                        <p className="password-validator hidden">Password Required</p>
                     </div>
                     <div>
                         <label htmlFor="confirmPassword">Confirm Password:</label><br/>
@@ -95,10 +99,13 @@ const SignUp = () => {
                         type="password" 
                         value={confirmPassword} 
                         onChange={handleChange}/><br/>
+                        <p className="confirmPassword-validator hidden">Passwords Must Match</p>
                     </div>
                     <button>Sign Up</button>
                     <NavLink to="/login" className="login-link">Existing User</NavLink>
                 </form>
+                <p className="success hidden">User Created</p>
+                <p className="failed hidden">Couldn't Create User</p>
             </section>
         </div>
     )
