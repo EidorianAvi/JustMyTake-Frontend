@@ -21,10 +21,10 @@ const NavBar = () => {
                 </button>
                 <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
                     <ul>
-                        <li><NavLink exact to="/">Home</NavLink></li>
-                        <li><NavLink to="/my-takes">My Takes</NavLink></li>
-                        <li><NavLink to="/profile">Profile</NavLink></li>
-                        <li><NavLink to="/login">Log In</NavLink></li>
+                        <li><NavLink exact to="/" onClick={handleClick}>Home</NavLink></li>
+                        <li><NavLink to="/my-takes" onClick={handleClick}>My Takes</NavLink></li>
+                        <li><NavLink to="/profile" onClick={handleClick}>Profile</NavLink></li>
+                        <li><NavLink to="/login" onClick={handleClick}>Log In</NavLink></li>
                     </ul> 
                 </nav>            
             </section>

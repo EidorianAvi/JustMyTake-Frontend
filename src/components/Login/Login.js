@@ -85,7 +85,7 @@ const Login = () => {
     }
 
     return (
-        <div className="login-page">
+        <div className="login-page" data-aos="fade">
             <section className="banner">
                 <h2>Welcome Back</h2>
             </section>

@@ -57,7 +57,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className="signup-page">
+        <div className="signup-page" data-aos="fade">
             <section className="signup-banner">
                 <h2>Create an Account</h2>
             </section>
