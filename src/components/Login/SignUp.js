@@ -8,10 +8,8 @@ const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [email, setEmail] = useState("");
 
+   // Handles change values in input fields for signup form
     const handleChange = ({ target }) => {
-        // return target.name === "username"
-        //     ? setUsername(target.value)
-        //     : setPassword(target.value);
         switch(target.name){
             case "email":
                 return setEmail(target.value);
@@ -26,7 +24,9 @@ const SignUp = () => {
         }
     }
 
+    // Checks for Input fields and if not empty passes them into createUser function
     const handleSubmit = (e) => {
+        checkForInput();
         e.preventDefault();
         let user = {
             username: username,
@@ -36,6 +36,36 @@ const SignUp = () => {
         
         createUser(user);
     }
+
+    // Makes sure input fields are filled in and if not toggles validators.
+
+    const checkForInput = () => {
+        if(email === ""){
+            let emailValidator = document.querySelector(".email-validator");
+            emailValidator.classList.remove("hidden");
+            setTimeout(() => {
+                emailValidator.classList.add('hidden');
+            }, 2000);
+        } else if (username === ""){
+            let usernameValidator = document.querySelector(".username-validator");
+            usernameValidator.classList.remove('hidden');
+            setTimeout(() => {
+                usernameValidator.classList.add('hidden');
+            }, 2000);
+        } else if(password === ""){
+            let passwordValidator = document.querySelector(".password-validator");
+            passwordValidator.classList.remove('hidden');
+            setTimeout(() => {
+                passwordValidator.classList.add('hidden');
+            }, 2000);
+        } else if (confirmPassword === "" || password !== confirmPassword){
+            let confirmPasswordValidator = document.querySelector(".confirmPassword-validator");
+            confirmPasswordValidator.classList.remove('hidden');
+            setTimeout(() => {
+                confirmPasswordValidator.classList.add('hidden');
+            }, 2000);
+        }
+    }  
 
     const createUser = (user) => {
         fetch("http://localhost:8000/users/add-user", {
