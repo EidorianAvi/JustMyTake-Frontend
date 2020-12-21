@@ -67,6 +67,8 @@ const SignUp = () => {
         }
     }  
 
+    //Makes the POST request to the server to create a new user
+
     const createUser = (user) => {
         fetch("http://localhost:8000/users/add-user", {
           method: "POST",
@@ -78,12 +80,32 @@ const SignUp = () => {
           .then((response) => response.json())
           .then((response) => {
             if (response.message) {
-                console.log(response.message);
+                handleCreationSuccess(false);
             } else {
-                console.log("success");
+                handleCreationSuccess(true);
               localStorage.setItem("token", response.token);
             }
       });
+    }
+
+    const handleCreationSuccess = (attempt) => {
+        if(attempt === true){      
+            let success = document.querySelector('.success');
+            success.classList.remove('hidden');
+            setTimeout(() => {
+                success.classList.add('hidden');
+            }, 2000);
+            setEmail("");
+            setUsername("");
+            setPassword("");
+            setConfirmPassword("");
+        } else {
+            let failed = document.querySelector(".failed");
+            failed.classList.toggle('hidden');
+            setTimeout(() => {
+                failed.classList.add('hidden');
+            }, 2000)
+        }
     }
 
     return (

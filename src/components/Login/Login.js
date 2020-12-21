@@ -59,7 +59,8 @@ const Login = () => {
         .then((response) => {
             if (password !== "" && response.message) {
                 handleLoginSuccess(false)
-            } else if( response.accessToken) {
+            } else if( response.accessToken ) {
+                console.log(response)
                 handleLoginSuccess(true)
                 localStorage.setItem("token", response.accessToken);
             }
@@ -74,7 +75,9 @@ const Login = () => {
             success.classList.remove('hidden');
             setTimeout(() => {
                 success.classList.add('hidden');
-            }, 2000)
+            }, 2000);
+            setPassword("");
+            setUsername("");
         } else {
             let failed = document.querySelector(".failed");
             failed.classList.toggle('hidden');
