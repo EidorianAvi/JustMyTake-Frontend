@@ -1,10 +1,11 @@
 import React, { useState }from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [redirect, setRedirect] = useState(null);
     
     // Handles change values in input fields for login form
 
@@ -60,7 +61,6 @@ const Login = () => {
             if (password !== "" && response.message) {
                 handleLoginSuccess(false)
             } else if( response.accessToken ) {
-                console.log(response)
                 handleLoginSuccess(true)
                 localStorage.setItem("token", response.accessToken);
             }
@@ -75,6 +75,7 @@ const Login = () => {
             success.classList.remove('hidden');
             setTimeout(() => {
                 success.classList.add('hidden');
+                setRedirect("/");
             }, 2000);
             setPassword("");
             setUsername("");
@@ -86,6 +87,11 @@ const Login = () => {
             }, 2000)
         }
     }
+
+    if (redirect) {
+        return <Redirect exact to={redirect}/>
+    }
+
 
     return (
         <div className="login-page" data-aos="fade">
