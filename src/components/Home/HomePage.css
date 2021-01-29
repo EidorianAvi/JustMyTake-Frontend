@@ -1,12 +1,43 @@
 .home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+
     height: auto;
     font-family: 'Corben', cursive;
 }
 
 .home-page p {
-    margin: auto;
-    font-size: 24px;
+    margin: 45px 0px;
+    font-size: 22px;
     line-height: 28px;
     padding: 20px;
+}
+
+.home-page button {
+    background-color: black;
+    font-size: 24px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px grey;
+    padding: 5px 40px;
+    margin: 20px;
+}
+
+.home-page button:active {
+    background-color: maroon;
+}
+
+.home-page button a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+}
+
+.home-page button a:visited {
+    color: white;
+}
+
+.home-page > a {
+    padding: 10p x 0px;
 }
