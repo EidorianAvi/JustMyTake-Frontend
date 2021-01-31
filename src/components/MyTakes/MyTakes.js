@@ -2,8 +2,11 @@ import React from 'react'
 
 const MyTakes = () => {
     return (
-        <div>
-            <h1>My Takes Page</h1>
+        <div class="my-takes-page">
+            <button>New Take+</button>
+            <div class="previous-takes">
+                
+            </div>
         </div>
     )
 }
