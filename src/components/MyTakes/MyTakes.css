@@ -1,0 +1,20 @@
+.my-takes-page {
+    display: flex;
+    justify-content: center;
+    height: 
+}
+
+.my-takes-page button {
+    background-color: black;
+    color: white;
+    font-size: 24px;    
+    font-family: 'Oswald', sans-serif;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px grey;
+    padding: 5px 40px;
+    margin: 20px;
+}
+
+.my-takes-page button:active {
+    background-color: orangered;
+}

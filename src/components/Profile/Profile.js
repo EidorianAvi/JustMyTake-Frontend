@@ -1,9 +1,12 @@
 import React from 'react'
+import './Profile.css'
 
 const Profile = () => {
     return (
-        <div>
-            <h1>Profile</h1>
+        <div class="profile-page">
+            <p>My Profile</p>
+            <img src="../../assets/Blank-Avatar.jpg" alt="Blank Avatar"/>
+            
         </div>
     )
 }
