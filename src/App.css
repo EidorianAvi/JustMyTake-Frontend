@@ -56,3 +56,13 @@ table {
 .App {
 	font-family: 'Oswald', sans-serif;
 }
+
+
+/* This will make it so no blue background is shown on clicks for mobile */
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}

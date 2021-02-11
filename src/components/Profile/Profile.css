@@ -1,5 +1,43 @@
 .profile-page {
+    padding: 30px 10px;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
+.profile-page .username {
+    font-size: 24px;
+    padding: 10px;
+}
+
+.profile-page img {
+    border-radius: 50%;
+    width: 150px;
+    height: auto;
+}
+
+.about-me {
+    width: 80%;
+}
+
+.about-header {
+    padding-top: 10px;
+    text-decoration: underline;
+}
+
+.about-placeholder {
+    padding-top: 10px;
+    color: lightslategray;
+}
+
+.profile-page button {
+    text-decoration: underline;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: none;
+    margin: 30px 0px 15px 0px;
+    font-size: 12px;
+    width: 100%;
+}
